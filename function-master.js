@@ -93,7 +93,15 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    for (var key in object) {
+        if (key === 'name') {
+            object['name'] = object['name'].charAt(0).toUpperCase() + object['name'].slice(1);
+        }
+        if (key === 'species') {
+            object['species'] = object['species'].charAt(0).toUpperCase() + object['species'].slice(1);
+        }
+    }
+    return object['name'] + " is a " + object['species'];
 }
 
 //////////////////////////////////////////////////////////////////////
