@@ -109,9 +109,19 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
-}
-
+    var output = [];
+      if (Object.keys(object).length === 0){
+        return "there are no noises";
+      } else if (object.noises.length === 0) {
+        return "there are no noises";
+      } else {
+        for (var i = 0; i <= object.noises.length - 1; i++) {
+          output.push(object.noises[i]);
+        }
+      }
+      return output.join(" ")
+        }
+    
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
