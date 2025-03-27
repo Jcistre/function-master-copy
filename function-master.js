@@ -127,7 +127,13 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    var output = string.split(" ");
+    for (var i = 0; i <= output.length - 1; i++) {
+        if (output[i].toLowerCase() === word.toLowerCase()) {
+            return true;
+        }
+    }
+  return false;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -135,7 +141,10 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    var output = [];
+    output.push(object)
+    output[0].friends.push(name);
+    return output[0];
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -143,8 +152,17 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
-}
+    if (Object.keys(object).length === 0) {
+        return false;
+    } else {
+        for (var i = 0; i <= object.friends.length - 1; i++) {
+            if (object.friends[i] === name){
+                return true;
+            }
+            }
+        }
+        return false;
+    }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
