@@ -169,21 +169,21 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-    var output = [];
     var list = [];
+    var output = [];
     var current = null;
-    for (var i = 0; i < array.length; i++) {
-        if (name = array[i].name) {
-            current = array[i]
+    for (var i = 0; i < array.length; i++){
+        if (name === array[i].name){
+            current = array[i];
         } else {
-            list.push(array[i].name)
+            list.push(array[i].name);
         }
     }
-    if (current === null) {
+    if (current === null){
         return list;
     }
-    for (var i = 0; i < list.length; i++) {
-        if (current.friends.indexOf(list[i]) == -1) {
+    for(var i = 0; i < list.length; i++){
+        if (current.friends.indexOf(list[i]) == -1){
             output.push(list[i]);
         }
     }
