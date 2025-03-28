@@ -169,7 +169,25 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    var output = [];
+    var list = [];
+    var current = null;
+    for (var i = 0; i < array.length; i++) {
+        if (name = array[i].name) {
+            current = array[i]
+        } else {
+            list.push(array[i].name)
+        }
+    }
+    if (current === null) {
+        return list;
+    }
+    for (var i = 0; i < list.length; i++) {
+        if (current.friends.indexOf(list[i]) == -1) {
+            output.push(list[i]);
+        }
+    }
+    return output;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -177,7 +195,8 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+    object[key] = value;
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -185,7 +204,13 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    for (var i = 0; i <= array.length - 1; i++) {
+        for (var key in object){
+            if (array[i] === key) {
+                delete object[key];
+            }
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -193,7 +218,7 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    return [...new Set(array)];
 }
 
 //////////////////////////////////////////////////////////////////////
